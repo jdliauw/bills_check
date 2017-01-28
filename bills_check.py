@@ -1,4 +1,5 @@
 import argparse
+import password
 from selenium import webdriver
 
 def duke():
@@ -6,7 +7,7 @@ def duke():
     url = "https://www.duke-energy.com/home"
     driver.get(url)
     driver.find_element_by_id("login-username").send_keys("jdliauw@gmail.com")
-    driver.find_element_by_id("login-password").send_keys("")
+    driver.find_element_by_id("login-password").send_keys(password.password)
     driver.find_element_by_xpath("//input[@class='btn-medium btn-reverse']").click()
     driver.implicitly_wait(5)
     balance = driver.find_element_by_id("ctl00__BodyRegion_lblAccountBalance").text
@@ -18,7 +19,7 @@ def ocfl():
 	driver = webdriver.Firefox()
 	url = "https://utilities.ocfl.net/OCUD/?uname=jdliauw@gmail.com"
 	driver.get(url)
-	driver.find_element_by_xpath("//input[@type='password']").send_keys("")
+	driver.find_element_by_xpath("//input[@type='password']").send_keys(password.password)
 	driver.find_element_by_xpath("//input[@type='submit']").click()
 	balance = driver.find_element_by_id("ctl00_MainContentPlaceHolder_lblCurrentBalance").text
 	driver.close()
